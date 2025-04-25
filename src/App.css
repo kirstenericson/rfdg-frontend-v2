@@ -30,3 +30,21 @@
     transform: rotate(360deg);
   }
 }
+
+.event-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  margin: 16px;
+}
+.event-card h2 {
+  margin: 0;
+}
+.event-card p {
+  margin: 8px 0;
+}
+.event-card a {
+  color: #007bff;
+  text-decoration: none;
+}
