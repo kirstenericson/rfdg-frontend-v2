@@ -33,6 +33,14 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/logout"
+            element={
+              <ProtectedRoute>
+                <Login />
+              </ProtectedRoute>
+            }
+          />
           <Route index element={<Home />} />
         </Routes>
       
