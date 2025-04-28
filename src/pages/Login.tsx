@@ -53,6 +53,8 @@ import Stack from '@mui/material/Stack';
 import MuiCard from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
 import { useState } from "react";
+
+import "../App.css";
 // import ForgotPassword from './components/ForgotPassword';
 // import AppTheme from '../shared-theme/AppTheme';
 // import ColorModeSelect from '../shared-theme/ColorModeSelect';
@@ -152,6 +154,7 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
 
   return (
     <>
+    <header className="App-background">
       <CssBaseline enableColorScheme />
       <SignInContainer direction="column" justifyContent="space-between">
 
@@ -211,10 +214,10 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </FormControl>
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
@@ -223,7 +226,7 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
             >
               Sign in
             </Button>
-            <Link
+            {/* <Link
               component="button"
               type="button"
               onClick={handleClickOpen}
@@ -231,7 +234,7 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
               sx={{ alignSelf: 'center' }}
             >
               Forgot your password?
-            </Link>
+            </Link> */}
           </Box>
           <Divider>or</Divider>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
@@ -248,6 +251,7 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
           </Box>
         </Card>
       </SignInContainer>
+      </header>
     </>
   );
 }
