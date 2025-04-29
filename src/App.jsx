@@ -6,8 +6,10 @@ import NavBar from './components/NavBar';
 import Events from './pages/Events';
 import Groups from './pages/Groups';
 import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 import { AuthProvider } from "./auth/AuthProvider";
 import ProtectedRoute from "./auth/ProtectedRoute";
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
       
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route
             path="/events"
             element={

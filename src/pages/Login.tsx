@@ -1,52 +1,13 @@
- import { useAuth } from "../auth/AuthProvider";
-
-
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     login(username, password);
-//   };
-
-//   return (
-//     <div className="login-container">
-//       <h1>Login</h1>
-//       <form onSubmit={handleSubmit}>
-//         <div>
-//           <label>Username</label>
-//           <input
-//             type="text"
-//             value={username}
-//             onChange={(e) => setUsername(e.target.value)}
-//             required
-//           />
-//         </div>
-//         <div>
-//           <label>Password</label>
-//           <input
-//             type="password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//             required
-//           />
-//         </div>
-//         {error && <p style={{ color: "red" }}>{error}</p>}
-//         <button type="submit">Login</button>
-//       </form>
-//     </div>
-//   )
-// }
-// export default Login;
-
+import { useAuth } from "../auth/AuthProvider";
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
 import CssBaseline from '@mui/material/CssBaseline';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Divider from '@mui/material/Divider';
 import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
-import Link from '@mui/material/Link';
+// import Link from '@mui/material/Link';
+import { Link } from "react-router-dom";
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
@@ -103,22 +64,16 @@ const SignInContainer = styled(Stack)(({ theme }) => ({
 }));
 
 export default function SignIn(props: { disableCustomTheme?: boolean }) {
-  const [usernameError, setUsernameError] = React.useState(false);
-  const [usernameErrorMessage, setUsernameErrorMessage] = React.useState('');
-  const [passwordError, setPasswordError] = React.useState(false);
-  const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
-  const [open, setOpen] = React.useState(false);
+  const [usernameError] = React.useState(false);
+  const [usernameErrorMessage] = React.useState('');
+  const [passwordError] = React.useState(false);
+  const [passwordErrorMessage] = React.useState('');
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+ 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { login, error } = useAuth();
+  const { login } = useAuth();
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -240,13 +195,13 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <Typography sx={{ textAlign: 'center' }}>
               Don&apos;t have an account?{' '}
-              <Link
-                href="/material-ui/getting-started/templates/sign-in/"
-                variant="body2"
-                sx={{ alignSelf: 'center' }}
+              <Link to="/signup"
+                // variant="body2"
+                // sx={{ alignSelf: 'center' }}
               >
                 Sign up
               </Link>
+
             </Typography>
           </Box>
         </Card>
