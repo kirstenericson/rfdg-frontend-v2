@@ -97,8 +97,8 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [division, setDivision] = useState('');
-  const { login, error } = useAuth();
+  const [division, setDivision] = useState("");
+  const { register, error } = useAuth();
   
   const handleDivChange = (event: SelectChangeEvent) => {
     setDivision(event.target.value as string);
@@ -106,19 +106,36 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    login(username, password);
+    if (validateInputs()){
+      register(division, email, firstName, lastName, password, reenterPassword, username);
+    }
   };
 
   const validateInputs = () => {
+    
     const email = document.getElementById('email') as HTMLInputElement;
     const username = document.getElementById('username') as HTMLInputElement;
     const password = document.getElementById('password') as HTMLInputElement;
-    const reenterPassword = document.getElementById('re-enterPassword') as HTMLInputElement;
+    const reenterPassword = document.getElementById('reenterPassword') as HTMLInputElement;
     const firstName = document.getElementById('firstName') as HTMLInputElement;
     const lastName = document.getElementById('lastName') as HTMLInputElement;
-    const division = document.getElementById('division') as HTMLInputElement;
-
+    // const division = document.getElementById('division') 
+    console.log(division);
+    console.log(email.value);
+    console.log(firstName.value);
+    console.log(lastName.value);
+    console.log(username.value);
+    console.log(password.value);
+    console.log(reenterPassword.value);
     let isValid = true;
+    if (!division || division === "") {
+      setDivisionError(true);
+      setDivisionErrorMessage('Please select a division.');
+      isValid = false;
+    } else {
+      setDivisionError(false);
+      setDivisionErrorMessage('');
+    }
 
     if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
       setEmailError(true);
@@ -265,6 +282,7 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
                 id="division"
                 type="division"
                 name="division"
+                value = {division}
                 required
                 fullWidth
                 variant="outlined"

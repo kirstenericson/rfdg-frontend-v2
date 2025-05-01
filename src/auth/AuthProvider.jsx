@@ -58,6 +58,33 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const register = async (division, email, firstName, lastName, password, passwordRetype, username) => {
+    setError(null);
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("https://rfdgc.onrender.com/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ division, email, firstName, lastName, password, passwordRetype, username }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        navigate("/login"); // Redirect to login after signup
+      } else {
+        const errorData = await response.json();
+        setError(errorData.message || "Signup failed.");
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+
   const logout = () => {
     setToken(null);
     setUser(null);
@@ -66,7 +93,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ token, user, login, logout, error, isLoading }}>
+    <AuthContext.Provider value={{ token, user, login, logout, register, error, isLoading }}>
       {children}
     </AuthContext.Provider>
   );
