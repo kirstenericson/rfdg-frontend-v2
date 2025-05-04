@@ -9,7 +9,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import { AuthProvider } from "./auth/AuthProvider";
 import ProtectedRoute from "./auth/ProtectedRoute";
-
+import EventSignUp from './pages/EventSignUp';
 
 function App() {
   return (
@@ -41,6 +41,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Login />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/events/:id"
+            element={
+              <ProtectedRoute>
+                <EventSignUp />
               </ProtectedRoute>
             }
           />

@@ -18,7 +18,7 @@ const Events = () => {
                     {isLoading ? <CircularProgress /> :
                         data.map((event: any) => (
                             <EventsCard
-                                key={event.id}
+                                id={event.id}
                                 name={event.name}
                                 date={event.date}
                                 registration_starts={event.registration_starts}

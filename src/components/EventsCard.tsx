@@ -1,4 +1,4 @@
-import { Card } from "@mui/joy";
+import { Button, Card } from "@mui/joy";
 import Moment from 'moment';
 interface EventProps {
     name: string;
@@ -7,12 +7,14 @@ interface EventProps {
     registration_ends: string;
     registration_limit: string;
     holes: string;
+    id: string;
 }
-export const EventsCard: React.FC<EventProps> = ({ name, date, registration_starts, registration_ends, registration_limit, holes }) => {
+export const EventsCard: React.FC<EventProps> = ({ name, date, registration_starts, registration_ends, registration_limit, holes, id}) => {
     const registration_starts_date = new Date(registration_starts);
     const registration_ends_date = new Date(registration_ends);
     const date_date = new Date(date);
     return (
+        <a href={`/events/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
         <Card className="event-card" variant='outlined' style={{ padding: '20px', margin: '10px', backgroundColor: '#f0f0f0', height: '20em',  width: '50em' }}>
             <h2>{name}</h2>
             <p><strong>Date:</strong> {Moment(date_date).format('MM/DD/YYYY')}</p>
@@ -21,5 +23,6 @@ export const EventsCard: React.FC<EventProps> = ({ name, date, registration_star
             <p><strong>Registration Limit:</strong> {registration_limit}</p>
             <p><strong>Holes:</strong> {holes}</p>
         </Card>
+        </a>
     );
 }

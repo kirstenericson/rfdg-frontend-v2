@@ -14,7 +14,11 @@ export const EventsApi = createApi({
     //       body: newPost,
     //     }),
     //   }),
+        getAvailUsers: builder.query({
+         query: () => "event/avail",
+        }),
     }),
+        
   });
   
-  export const { useGetEventQuery } = EventsApi;
+  export const { useGetEventQuery, useGetAvailUsersQuery } = EventsApi;
