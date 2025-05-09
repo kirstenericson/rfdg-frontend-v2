@@ -26,8 +26,12 @@ const Card = styled(MuiCard)(({ theme }) => ({
   flexDirection: 'column',
   alignSelf: 'center',
   width: '100%',
+  borderRadius: theme.spacing(2),
+  backgroundColor: theme.palette.background.paper,
+  backdropFilter: 'blur(10px)',
+
   padding: theme.spacing(4),
-  gap: theme.spacing(2),
+  gap: theme.spacing(3),
   margin: 'auto',
   [theme.breakpoints.up('sm')]: {
     maxWidth: '450px',
@@ -118,8 +122,12 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
           <Typography
             component="h1"
             variant="h4"
-            sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}
-          >
+            sx={{
+              width: '100%',
+              fontWeight: 600,
+              fontSize: 'clamp(2rem, 5vw, 2.5rem)',
+              textAlign: 'center',
+            }}          >
             Sign in
           </Typography>
           <Box
@@ -191,9 +199,9 @@ export default function SignIn(props: { disableCustomTheme?: boolean }) {
               Forgot your password?
             </Link> */}
           </Box>
-          <Divider>or</Divider>
+          <Divider sx={{ my: 3 }} />
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <Typography sx={{ textAlign: 'center' }}>
+            <Typography sx={{ textAlign: 'center', fontSize: '0.95rem' }}>
               Don&apos;t have an account?{' '}
               <Link to="/signup"
                 // variant="body2"
