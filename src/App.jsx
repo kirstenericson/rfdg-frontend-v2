@@ -10,9 +10,12 @@ import SignUp from './pages/SignUp';
 import { AuthProvider } from "./auth/AuthProvider";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import EventSignUp from './pages/EventSignUp';
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 function App() {
   return (
+    <Provider store={store}>
     <BrowserRouter>
     <AuthProvider>
       <NavBar />
@@ -57,6 +60,7 @@ function App() {
       
     </AuthProvider>
     </BrowserRouter>
+    </Provider>
   );
 }
 
