@@ -1,4 +1,4 @@
-import { Button, Card } from "@mui/joy";
+import { Card } from "@mui/joy";
 import Moment from 'moment';
 interface EventProps {
     name: string;

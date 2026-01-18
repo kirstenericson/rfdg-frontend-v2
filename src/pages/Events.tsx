@@ -26,7 +26,7 @@ const Events = () => {
         {isLoading ? (
           <CircularProgress />
         ) : (
-          data.map((event: any) => (
+          data && data.map((event: any) => (
             <EventsCard
               key={event.id}
               id={event.id}
