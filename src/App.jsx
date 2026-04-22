@@ -11,7 +11,7 @@ import { AuthProvider } from "./auth/AuthProvider";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import EventSignUp from './pages/EventSignUp';
 import EventCreate from "./pages/EventCreate";
-
+//I have commented out protected route until we get the api back up.
 function App() {
   return (
     <BrowserRouter>
@@ -32,9 +32,9 @@ function App() {
           <Route
             path="/groups"
             element={
-              <ProtectedRoute>
+              // <ProtectedRoute>
                 <Groups />
-              </ProtectedRoute>
+              // </ProtectedRoute>
             }
           />
           <Route
