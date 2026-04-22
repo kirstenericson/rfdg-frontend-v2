@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+import Button from "@mui/material/Button";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { useGetEventQuery } from "../services/EventsApi";
 import { mockEvents } from "../services/eventsMockData";
 import { setEvents } from "../store/eventSlice";
@@ -33,6 +35,7 @@ const Events = () => {
   return (
     <header className="App-header">
       <h1>Events</h1>
+      <p>This is a placeholder for the events page.</p>
       <EventsGrid events={eventsData} isLoading={eventsLoading} />
     </header>
   );

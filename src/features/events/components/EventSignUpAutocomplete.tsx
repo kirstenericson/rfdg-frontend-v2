@@ -1,7 +1,15 @@
 import { Autocomplete } from "@mui/joy";
 import { useGetAvailUsersQuery } from "../../../services/EventsApi";
 
-export default function EventSignUpAutocomplete() {
+interface EventSignUpAutocompleteProps {
+  value: string;
+  onChange: (value: string) => void;
+}
+
+export default function EventSignUpAutocomplete({
+  value,
+  onChange,
+}: EventSignUpAutocompleteProps) {
   const { data, error, isLoading } = useGetAvailUsersQuery({});
 
   if (error) return <div>Error</div>;
@@ -13,8 +21,9 @@ export default function EventSignUpAutocomplete() {
     <Autocomplete
       placeholder="Search for a player..."
       options={names}
-      onChange={(_event, value) => {
-        console.log(value);
+      value={value}
+      onChange={(_event, newValue) => {
+        onChange(newValue || ""); // Pass the selected value back to the parent
       }}
     />
   );

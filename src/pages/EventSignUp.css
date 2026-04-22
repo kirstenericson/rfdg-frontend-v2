@@ -1,0 +1,81 @@
+/* Container for the entire page */
+.event-signup-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Left half: Event description */
+.event-description {
+  flex: 1;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  overflow-y: auto;
+}
+
+/* Right half: Add Player form */
+.add-player-form {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Player field container */
+.player-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Add Player button */
+.add-player-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Remove Player button */
+.remove-player-button {
+  padding: 5px 10px;
+  cursor: pointer;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Submit Group button */
+.submit-group-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  background: blue;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .event-signup-container {
+    flex-direction: column;
+  }
+
+  .event-description,
+  .add-player-form {
+    flex: none;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
+}

@@ -6,7 +6,7 @@ export default function EventCreate() {
   return (
     <header className="App-header">
       <h1>Create Event</h1>
-      <p>Fill out the form below. Submission is local for now.</p>
+      <p>Fill out the form below. Once the api is back up, I will make this page only available for admin accounts.</p>
       <EventCreateForm />
       <Button component={Link} to="/events" sx={{ mt: 2 }}>
         Back to events

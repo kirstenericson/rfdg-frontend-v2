@@ -11,13 +11,12 @@ import { AuthProvider } from "./auth/AuthProvider";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import EventSignUp from './pages/EventSignUp';
 import EventCreate from "./pages/EventCreate";
-//I have commented out protected route until we get the api back up.
+
 function App() {
   return (
     <BrowserRouter>
-    <AuthProvider>
-      <NavBar />
-      
+      <AuthProvider>
+        <NavBar />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
@@ -55,8 +54,7 @@ function App() {
           />
           <Route index element={<Home />} />
         </Routes>
-      
-    </AuthProvider>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
