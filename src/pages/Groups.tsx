@@ -1,14 +1,7 @@
 import React from "react";
-
-import "../App.css";
+import { GroupsPlaceholder } from "../features/groups/components";
 
 const Groups = () => {
-    return (
-        <header className="App-header">
-
-            <p> YAYYYYYAYYAYAYYAYAYAYYAYYAY GROUPS </p>
-
-        </header>
-    );
-}
+  return <GroupsPlaceholder />;
+};
 export default Groups;

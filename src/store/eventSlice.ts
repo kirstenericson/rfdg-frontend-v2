@@ -1,17 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface Event {
-  id: string;
-  name: string;
-  date: string;
-  registration_starts: string;
-  registration_ends: string;
-  registration_limit: string;
-  holes: string;
-}
+import { EventItem } from "../features/events/types";
 
 interface EventState {
-  events: Event[];
+  events: EventItem[];
 }
 
 const initialState: EventState = {
@@ -22,7 +13,7 @@ const eventSlice = createSlice({
   name: "events",
   initialState,
   reducers: {
-    setEvents(state, action: PayloadAction<Event[]>) {
+    setEvents(state, action: PayloadAction<EventItem[]>) {
       state.events = action.payload;
     },
   },

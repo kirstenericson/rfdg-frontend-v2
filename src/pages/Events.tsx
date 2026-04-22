@@ -1,45 +1,39 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useGetEventQuery } from "../services/EventsApi";
+import { mockEvents } from "../services/eventsMockData";
 import { setEvents } from "../store/eventSlice";
-import { EventsCard } from "../components/EventsCard";
-import CircularProgress from "@mui/material/CircularProgress";
+import { EventsGrid } from "../features/events/components";
+import { EventItem } from "../features/events/types";
 
 import "../App.css";
 
+const USE_PAGE_MOCK_EVENTS =
+  process.env.REACT_APP_USE_PAGE_MOCK_EVENTS === "true" ||
+  process.env.REACT_APP_USE_MOCK_EVENTS_API === "true";
+
 const Events = () => {
-  const { data, error, isLoading } = useGetEventQuery({});
+  const { data, error, isLoading } = useGetEventQuery(undefined, {
+    skip: USE_PAGE_MOCK_EVENTS,
+  });
   const dispatch = useDispatch();
+  const eventsData = (USE_PAGE_MOCK_EVENTS ? mockEvents : data) as
+    | EventItem[]
+    | undefined;
+  const eventsLoading = USE_PAGE_MOCK_EVENTS ? false : isLoading;
+  const eventsError = USE_PAGE_MOCK_EVENTS ? null : error;
 
   useEffect(() => {
-    if (data) {
-      dispatch(setEvents(data)); // Store the event data in Redux
+    if (eventsData) {
+      dispatch(setEvents(eventsData)); // Store whichever event source is active
     }
-  }, [data, dispatch]);
+  }, [eventsData, dispatch]);
 
-  if (error) return <div>Error</div>;
+  if (eventsError) return <div>Error</div>;
   return (
     <header className="App-header">
       <h1>Events</h1>
-      <p>This is a placeholder for the events page.</p>
-      <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
-        {isLoading ? (
-          <CircularProgress />
-        ) : (
-          data && data.map((event: any) => (
-            <EventsCard
-              key={event.id}
-              id={event.id}
-              name={event.name}
-              date={event.date}
-              registration_starts={event.registration_starts}
-              registration_ends={event.registration_ends}
-              registration_limit={event.registration_limit}
-              holes={event.holes}
-            />
-          ))
-        )}
-      </div>
+      <EventsGrid events={eventsData} isLoading={eventsLoading} />
     </header>
   );
 };

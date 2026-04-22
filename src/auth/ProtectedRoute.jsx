@@ -3,14 +3,24 @@ import { Navigate } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
 
 const ProtectedRoute = ({ children }) => {
-  let { token } = useAuth();
-  if (!token) {
-    token = localStorage.getItem("authToken");
-  } else {
+  const { token, user } = useAuth();
+  const storedToken = localStorage.getItem("authToken");
+  const storedUser = (() => {
+    try {
+      const rawUser = localStorage.getItem("authUser");
+      return rawUser ? JSON.parse(rawUser) : null;
+    } catch (_error) {
+      return null;
+    }
+  })();
+  const activeToken = token || storedToken;
+  const isAdmin = Boolean(user?.admin || storedUser?.admin);
+
+  if (token) {
     localStorage.setItem("authToken", token);
   }
-  console.log(token);
-  if (!token) {
+
+  if (!activeToken && !isAdmin) {
     return <Navigate to="/login" replace />;
   }
 
