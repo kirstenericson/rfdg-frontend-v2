@@ -14,6 +14,7 @@ import { AuthProvider } from "./auth/AuthProvider";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import EventSignUp from './pages/EventSignUp';
 import EventCreate from "./pages/EventCreate";
+import PayoutCalculation from "./pages/PayoutCalculation";
 
 function App() {
   return (
@@ -54,6 +55,14 @@ function App() {
               element={
                 //<ProtectedRoute>
                   <EventCreate />
+                //</ProtectedRoute>
+              }
+            />
+            <Route
+              path="/payout-calculation"
+              element={
+                //<ProtectedRoute>
+                  <PayoutCalculation />
                 //</ProtectedRoute>
               }
             />

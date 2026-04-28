@@ -34,6 +34,7 @@ export default function NavBar() {
     { label: "Events", path: "/events" },
     { label: "Cards", path: "/cards" },
     { label: "Create Event", path: "/events/new" },
+    { label: "Payout Calculation", path: "/payout-calculation" },
   ];
 
   const handleDrawerToggle = () => {
