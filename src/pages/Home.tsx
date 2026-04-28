@@ -4,8 +4,11 @@ import { Link as RouterLink } from "react-router-dom";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import logo from "./logo.svg";
+import { useGetEventQuery } from "../services/EventsApi";
 
 const Home = () => {
+    const nextLeagueDate = useGetEventQuery(undefined);
+
     return (
         <Box
             sx={{
@@ -215,6 +218,17 @@ const Home = () => {
                                 <Typography variant="h3" sx={{ fontWeight: 700, mb: 2, fontSize: "1.5rem" }}>
                                     Monday
                                 </Typography>
+                                <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
+                                    {nextLeagueDate ? new Date(nextLeagueDate.data[0].date).toLocaleDateString("en-US", {
+                                        weekday: "long",
+                                        month: "long",
+                                        day: "numeric",
+                                    }) : "Date not available"}
+                                </Typography>
+                                
+                                <Typography variant="body2" sx={{ opacity: 0.9 }}>
+                                    9:30 AM Card Sign-ups On This Site
+                                </Typography>
                                 <Typography variant="body2" sx={{ opacity: 0.9 }}>
                                     4:45 PM Sign-ups
                                 </Typography>
@@ -244,20 +258,6 @@ const Home = () => {
                                     Minnesota
                                 </Typography>
                             </Card>
-
-                            <Button
-                                component={RouterLink}
-                                to="/events"
-                                variant="contained"
-                                fullWidth
-                                sx={{
-                                    textTransform: "capitalize",
-                                    fontWeight: 600,
-                                    py: 2,
-                                }}
-                            >
-                                Sign Up Today
-                            </Button>
                         </Stack>
                     </Grid>
                 </Grid>
