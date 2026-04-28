@@ -1,4 +1,4 @@
-import { Autocomplete } from "@mui/joy";
+import { Autocomplete } from "@mui/material";
 import { useGetAvailUsersQuery } from "../../../services/EventsApi";
 
 interface EventSignUpAutocompleteProps {
@@ -18,13 +18,14 @@ export default function EventSignUpAutocomplete({
   const names = data.map((user: { username: string }) => user.username);
 
   return (
-    <Autocomplete
-      placeholder="Search for a player..."
-      options={names}
-      value={value}
-      onChange={(_event, newValue) => {
-        onChange(newValue || ""); // Pass the selected value back to the parent
-      }}
-    />
+    <></>
+    // <Autocomplete
+    //   placeholder="Search for a player..."
+    //   options={names}
+    //   value={value}
+    //   onChange={(_event, newValue) => {
+    //     onChange(newValue || ""); // Pass the selected value back to the parent
+    //   }}
+    // />
   );
 }

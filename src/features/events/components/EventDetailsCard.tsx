@@ -1,4 +1,4 @@
-import { Card } from "@mui/joy";
+import { Card } from "@mui/material";
 import Moment from "moment";
 import { EventItem } from "../types";
 

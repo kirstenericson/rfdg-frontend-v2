@@ -55,7 +55,7 @@ export default function EventCreateForm() {
           required
           label="Event date"
           type="date"
-          InputLabelProps={{ shrink: true }}
+          slotProps={{ inputLabel: { shrink: true } }}
           value={draft.date}
           onChange={(e) => setDraft((prev) => ({ ...prev, date: e.target.value }))}
         />
@@ -63,7 +63,7 @@ export default function EventCreateForm() {
           required
           label="Registration starts"
           type="datetime-local"
-          InputLabelProps={{ shrink: true }}
+          slotProps={{ inputLabel: { shrink: true } }}
           value={draft.registration_starts}
           onChange={(e) =>
             setDraft((prev) => ({ ...prev, registration_starts: e.target.value }))
@@ -73,7 +73,7 @@ export default function EventCreateForm() {
           required
           label="Registration ends"
           type="datetime-local"
-          InputLabelProps={{ shrink: true }}
+          slotProps={{ inputLabel: { shrink: true } }}
           value={draft.registration_ends}
           onChange={(e) =>
             setDraft((prev) => ({ ...prev, registration_ends: e.target.value }))

@@ -1,4 +1,4 @@
-import CircularProgress from "@mui/material/CircularProgress";
+import { Box, CircularProgress } from "@mui/material";
 import EventsCard from "./EventsCard";
 import { EventItem } from "../types";
 
@@ -9,11 +9,30 @@ type EventsGridProps = {
 
 export default function EventsGrid({ events, isLoading }: EventsGridProps) {
   if (isLoading && !events?.length) {
-    return <CircularProgress />;
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "400px",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
   }
 
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+   <Box
+      sx={{
+        display: "grid",
+        gridTemplateColumns: "repeat(1, 1fr)",
+        gap: 3,
+        p: 2,
+        justifyContent: "center",
+      }}
+    >
       {events?.map((event) => (
         <EventsCard
           key={event.id}
@@ -26,6 +45,7 @@ export default function EventsGrid({ events, isLoading }: EventsGridProps) {
           holes={event.holes}
         />
       ))}
-    </div>
+    </Box>
   );
 }
+

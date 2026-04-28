@@ -1,7 +1,7 @@
-import Card from "@mui/joy/Card";
-import CardContent from "@mui/joy/CardContent";
-import List from "@mui/joy/List";
-import ListItem from "@mui/joy/ListItem";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 
 export default function LeagueInfoCard() {
@@ -57,7 +57,7 @@ export default function LeagueInfoCard() {
           Riverfront Disc Golf Club is always accepting and appreciative of donations for
           our weekly raffles. Please consider donating:
         </Typography>
-        <List marker="circle">
+        <List>
           <ListItem>
             <Typography>New or field-tested (good condition) discs </Typography>
           </ListItem>
@@ -75,7 +75,7 @@ export default function LeagueInfoCard() {
           I often get asked "how can I help?" If you're interested in any of the below
           responsibilities pleace reach out to me (Dan Ginter).
         </Typography>
-        <List marker="disc">
+        <List>
           <ListItem>Course Cleanup Events</ListItem>
           <ListItem>New fairway construction</ListItem>
           <ListItem>Assistant TDs for potential Pride Week Tournament</ListItem>

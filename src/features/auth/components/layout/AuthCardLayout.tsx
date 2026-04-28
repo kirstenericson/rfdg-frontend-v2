@@ -62,7 +62,7 @@ export default function AuthCardLayout({
   return (
     <header className="App-background">
       <CssBaseline enableColorScheme />
-      <AuthContainer direction="column" justifyContent="space-between">
+      <AuthContainer direction="column" sx={{ justifyContent: "space-between" }}>
         <Card variant="outlined">
           <Typography
             component="h1"

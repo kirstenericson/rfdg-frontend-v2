@@ -1,0 +1,50 @@
+/* Container for the entire page */
+.sign-up-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Left half: Welcome message */
+  .sign-up-description {
+    flex: 1;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  /* Right half: Sign-up form */
+  .sign-up-form {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px; /* Limit the width of the form */
+    margin: auto; /* Center the form */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .sign-up-container {
+      flex-direction: column;
+    }
+  
+    .sign-up-description {
+      border-right: none;
+      border-bottom: 1px solid #ccc;
+    }
+  
+    .sign-up-form {
+      max-width: 100%; /* Allow the form to take full width on smaller screens */
+      padding: 10px; /* Reduce padding for smaller screens */
+    }
+  }
